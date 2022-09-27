@@ -1,24 +1,22 @@
 <template>
   <v-app>
-    <v-navigation-drawer app>
-      <!-- -->
-    </v-navigation-drawer>
-    <v-alert
-     :value="mainAlert">
+    <v-app-bar app class="bg-secondary-darken-1">
+      <v-app-bar-nav-icon @click="drawer?drawer = false:drawer = true" />
 
-    </v-alert>
-
-    <v-app-bar app>
       <!-- -->
+      <app-bar />
     </v-app-bar>
+
+    <v-navigation-drawer v-model="drawer">
+      <!-- -->
+      <navigation-drawer />
+    </v-navigation-drawer>
 
     <!-- Sizes your content based upon application components -->
     <v-main>
 
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
-
-        <!-- If using vue-router -->
         <router-view></router-view>
       </v-container>
     </v-main>
@@ -32,16 +30,17 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useTheme } from 'vuetify'
+import NavigationDrawer from './components/layout/NavigationDrawer.vue';
+import AppBar from './components/layout/AppBar.vue';
+
 
 export default defineComponent({
-  name: 'App',
-
+  name: "App",
   data() {
-    const theme = useTheme();
     return {
-      theme,
-      toggleTheme: () => theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
-    }
+      drawer: true,
+    };
   },
+  components: { NavigationDrawer, AppBar },
 })
 </script>
