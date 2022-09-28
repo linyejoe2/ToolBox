@@ -63,7 +63,7 @@
 import { defineComponent } from 'vue'
 
 // Logo
-import logo from '../assets/favicon.svg'
+import logo from '../public/favicon.svg';
 
 export default defineComponent({
   name: 'HelloWorld',

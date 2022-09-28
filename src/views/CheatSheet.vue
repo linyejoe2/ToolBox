@@ -1,45 +1,68 @@
 <template>
-  <v-card flat tile>
-    <v-window v-model="onboarding">
-      <v-window-item v-for="n in length" :key="`card-${n}`" :value="n">
-        <v-card height="200" class="bg-primary d-flex justify-center align-center">
-          <span class="text-h2">
-            Card {{ n }}
-          </span>
-        </v-card>
-      </v-window-item>
-    </v-window>
+  <v-window v-model="onboarding" show-arrows="hover">
+    <v-window-item v-for="(ele,name) in cheatSheetObj">
+      <v-card elevation="2" height="400" class="d-flex align-center 
+      justify-center ma-2" @click="showAns = !showAns" v-show="!showAns">
+        <h1 class="text-h1">
+          {{ name }}
+        </h1>
+        <v-expand-transition>
+          <div v-if="showAns">
+            {{ ele.alias }}
+          </div>
+        </v-expand-transition>
+      </v-card>
+    </v-window-item>
+  </v-window>
+  <!-- <v-window v-model="onboarding" show-arrows="hover">
+    <v-window-item v-for="(ele,name) in cheatSheetObj" :key="ele" @click="showAns = false" v-show="showAns">
+      <v-card elevation="2" height="400" class="d-flex align-center 
+      justify-center ma-2">
+        <h1 class="text-h2">
+          {{ name }}
+        </h1>
+      </v-card>
 
-    <v-card-actions class="justify-space-between">
-      <v-btn variant="plain" icon="mdi-chevron-left" @click="prev"></v-btn>
-      <v-item-group v-model="onboarding" class="text-center" mandatory>
-        <v-item v-for="n in length" :key="`btn-${n}`" v-slot="{ isSelected, toggle }" :value="n">
-          <v-btn :variant="isSelected ? 'outlined' : 'text'" icon="mdi-record" @click="toggle"></v-btn>
-        </v-item>
-      </v-item-group>
-      <v-btn variant="plain" icon="mdi-chevron-right" @click="next"></v-btn>
-    </v-card-actions>
-  </v-card>
+    </v-window-item>
+
+    <v-window-item v-for="(ele,name) in cheatSheetObj" :key="ele" @click="showAns = false" v-show="!showAns">
+      <v-expand-transition>
+        <v-card elevation="2" height="400" class="d-flex align-center justify-center ma-2" >
+          {{ ele.alias }}
+        </v-card>
+      </v-expand-transition>
+    </v-window-item>
+  </v-window> -->
 </template>
 
-<script>
-export default {
-  data: () => ({
-    length: 3,
-    onboarding: 0,
-  }),
+<script lang="ts">
+import cheatSheetObj from "../public/CheatSheet.json";
 
-  methods: {
-    next() {
-      this.onboarding = this.onboarding + 1 > this.length
-        ? 1
-        : this.onboarding + 1
-    },
-    prev() {
-      this.onboarding = this.onboarding - 1 <= 0
-        ? this.length
-        : this.onboarding - 1
-    },
-  },
-}
+export default ({
+  data() {
+    return {
+      length: 3,
+      onboarding: 0,
+      cheatSheetObj: cheatSheetObj,
+      cheatSheetObj2: {
+        a: {
+          alias: [1, 2, 3]
+        },
+        b: {
+          alias: [1, 2, 3]
+        },
+        er: {
+          alias: [1, 2, 3]
+        },
+        vd: {
+          alias: [1, 2, 3]
+        }
+      },
+      showAns: false,
+      console2: (text: string) => {
+        console.log(text);
+      }
+    }
+  }
+})
 </script>

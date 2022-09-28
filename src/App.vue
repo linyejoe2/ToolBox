@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app class="bg-secondary-darken-1">
+    <v-app-bar app class="bg-primary">
       <v-app-bar-nav-icon @click="drawer?drawer = false:drawer = true" />
 
       <!-- -->
