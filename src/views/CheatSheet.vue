@@ -58,7 +58,7 @@
         <v-item>
           <v-text-field :label="onboarding + '/' +  (cheatSheetObj.length - 1).toString()" v-model="changeBoarding"
             type="number"
-            @keydown.enter="onboarding = Math.max(Math.min(parseInt(changeBoarding), cheatSheetObj.length -1), 0)"
+            @keydown.enter="onboarding = Math.max(Math.min(parseInt(changeBoarding)?parseInt(changeBoarding):0, cheatSheetObj.length -1), 0)"
             @blur="changeBoarding = undefined" />
         </v-item>
       </v-item-group>
@@ -100,7 +100,10 @@ export default ({
       changeBoarding: undefined,
       cheatSheetObj: cheatSheetObj.data,
       showAns: false,
-      seens: seens
+      seens: seens,
+      changeBoardingRules: [
+        value => !value || ""
+      ]
     }
   },
   computed: {
