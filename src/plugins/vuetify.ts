@@ -7,6 +7,7 @@ export default createVuetify(
   // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
   {
     theme: {
+      defaultTheme: "dark",
       themes: {
         light: {
           dark: false,
@@ -40,42 +41,42 @@ export default createVuetify(
   }
 )
 
-// .bg-background 
+// .bg-background
 // .bg-surface
 // .bg-surface-variant
-// .bg-primary 
+// .bg-primary
 // .bg-primary-darken-1
 // .bg-secondary
 // .bg-secondary-darken-1
 // .bg-error
-// .bg-info 
-// .bg-success 
-// .bg-warning 
-// .bg-primary-lighten-1 
-// .bg-primary-lighten-2 
-// .bg-primary-darken-2 
+// .bg-info
+// .bg-success
+// .bg-warning
+// .bg-primary-lighten-1
+// .bg-primary-lighten-2
+// .bg-primary-darken-2
 // .bg-secondary-lighten-1
-// .bg-secondary-lighten-2 
-// .bg-secondary-darken-2 
-// .text-background 
-// .border-background 
-// .text-surface 
-// .border-surface 
-// .text-surface-variant 
-// .border-surface-variant 
-// .on-surface-variant 
-// .text-primary 
+// .bg-secondary-lighten-2
+// .bg-secondary-darken-2
+// .text-background
+// .border-background
+// .text-surface
+// .border-surface
+// .text-surface-variant
+// .border-surface-variant
+// .on-surface-variant
+// .text-primary
 // .border-primary
-// .text-primary-darken-1 
-// .border-primary-darken-1 
-// .text-secondary 
+// .text-primary-darken-1
+// .border-primary-darken-1
+// .text-secondary
 // .border-secondary
-// .text-secondary-darken-1 
+// .text-secondary-darken-1
 // .border-secondary-darken-1
 // .text-error
 // .border-error
-// .text-info 
-// .border-info 
+// .text-info
+// .border-info
 // .text-success
 // .border-success
 // .text-warning {

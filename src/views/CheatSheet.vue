@@ -53,7 +53,8 @@
     </v-window>
 
     <v-card-actions class="justify-space-between">
-      <v-btn variant="plain" icon="mdi-chevron-left" @click="prev"></v-btn>
+      <v-btn v-if="seens.length" variant="plain" icon="mdi-chevron-left" @click="prev"></v-btn>
+      <v-btn v-if="!seens.length" disable variant="plain" icon="mdi-chevron-left" ></v-btn>
       <v-item-group v-model="onboarding" class="text-center" mandatory>
         <!-- <v-item v-for="ele in cheatSheetObj" v-slot="{ isSelected, toggle }" :value="ele.id">
           <v-btn :variant="isSelected ? 'outlined' : 'text'" icon="mdi-record" @click="toggle"></v-btn>
@@ -70,13 +71,29 @@
 
 <script lang="ts">
 import cheatSheetObj from "../public/CheatSheet.json";
+let nextId = Math.floor(Math.random() * (cheatSheetObj.data.length - 1));
+let seens: number[] = [];
+function getNextSheet(id: number) {
+  // 如果有加入了，代表他有按回去過，不要加入。
+  if (!seens.includes(id)) seens.push(id);
+  // 找到還沒被看過的字卡
+  while (seens.length < cheatSheetObj.data.length) {
+    nextId = Math.floor(Math.random() * (cheatSheetObj.data.length - 1))
+    if (!seens.includes(nextId)) return nextId;
+  }
+}
+function getPrevSheet() {
+  if (seens.length > 0) return seens.pop();
+}
+
 export default ({
   data() {
     return {
       length: cheatSheetObj.data.length - 1,
-      onboarding: 0,
+      onboarding: nextId,
       cheatSheetObj: cheatSheetObj.data,
       showAns: false,
+      seens: seens
     }
   },
   computed: {
@@ -84,14 +101,16 @@ export default ({
   },
   methods: {
     next() {
-      this.onboarding = this.onboarding + 1 > this.length
-        ? 0
-        : this.onboarding + 1
+      this.onboarding = getNextSheet(this.onboarding);
+      // this.onboarding = this.onboarding + 1 > this.length
+      //   ? 0
+      //   : this.onboarding + 1
     },
     prev() {
-      this.onboarding = this.onboarding - 1 <= -1
-        ? this.length
-        : this.onboarding - 1
+      this.onboarding = getPrevSheet();
+      // this.onboarding = this.onboarding - 1 <= -1
+      //   ? this.length
+      //   : this.onboarding - 1
     },
   },
 })
