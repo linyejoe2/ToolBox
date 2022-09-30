@@ -1,5 +1,4 @@
 <template>
-
   <v-card flat tile class="bg-secondary-lighten-2 pa-2">
     <v-window v-model="onboarding">
       <v-window-item v-for="ele in cheatSheetObj">
@@ -30,7 +29,7 @@
                   </v-card>
                 </v-col>
                 <v-col cols="6">
-                  <v-card title="Alias" :text="ele.alias.join(', ')"
+                  <v-card title="Alias" :text="ele.alias.lingth < 1 ? ele.alias : ele.alias.join(', ')"
                     class="bg-secondary-lighten-1 text-surface-variant">
                   </v-card>
                 </v-col>
@@ -54,36 +53,43 @@
 
     <v-card-actions class="justify-space-between">
       <v-btn v-if="seens.length" variant="plain" icon="mdi-chevron-left" @click="prev"></v-btn>
-      <v-btn v-if="!seens.length" disable variant="plain" icon="mdi-chevron-left" ></v-btn>
+      <v-btn v-if="!seens.length" disable variant="plain" icon="mdi-chevron-left"></v-btn>
       <v-item-group v-model="onboarding" class="text-center" mandatory>
-        <!-- <v-item v-for="ele in cheatSheetObj" v-slot="{ isSelected, toggle }" :value="ele.id">
-          <v-btn :variant="isSelected ? 'outlined' : 'text'" icon="mdi-record" @click="toggle"></v-btn>
-          {{onboarding}}
-        </v-item> -->
         <v-item>
-          <v-text-field :label="onboarding + '/' +  cheatSheetObj.length.toString()" />
+          <v-text-field :label="onboarding + '/' +  (cheatSheetObj.length - 1).toString()" v-model="changeBoarding"
+            type="number"
+            @keydown.enter="onboarding = Math.max(Math.min(parseInt(changeBoarding), cheatSheetObj.length -1), 0)"
+            @blur="changeBoarding = undefined" />
         </v-item>
       </v-item-group>
-      <v-btn variant="plain" icon="mdi-chevron-right" @click="next"></v-btn>
+      <v-btn v-if="seens.length != cheatSheetObj.length - 1" variant="plain" icon="mdi-chevron-right" @click="next">
+      </v-btn>
+      <v-btn v-if="seens.length === cheatSheetObj.length - 1" disable variant="plain" icon="mdi-chevron-right"></v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script lang="ts">
 import cheatSheetObj from "../public/CheatSheet.json";
-let nextId = Math.floor(Math.random() * (cheatSheetObj.data.length - 1));
-let seens: number[] = [];
+let nextId = Math.floor(Math.random() * (cheatSheetObj.data.length));// 下一個字卡的 id
+let seens: number[] = [];// 看過的字卡
+let showAns = false;// 要不要顯示答案
 function getNextSheet(id: number) {
+  // showAns = false;
   // 如果有加入了，代表他有按回去過，不要加入。
   if (!seens.includes(id)) seens.push(id);
+  console.log(seens);
   // 找到還沒被看過的字卡
   while (seens.length < cheatSheetObj.data.length) {
-    nextId = Math.floor(Math.random() * (cheatSheetObj.data.length - 1))
+    nextId = Math.floor(Math.random() * (cheatSheetObj.data.length))
     if (!seens.includes(nextId)) return nextId;
   }
 }
 function getPrevSheet() {
-  if (seens.length > 0) return seens.pop();
+  if (seens.length > 0) {
+    // showAns = false;
+    return seens.pop();
+  }
 }
 
 export default ({
@@ -91,6 +97,7 @@ export default ({
     return {
       length: cheatSheetObj.data.length - 1,
       onboarding: nextId,
+      changeBoarding: undefined,
       cheatSheetObj: cheatSheetObj.data,
       showAns: false,
       seens: seens
@@ -101,17 +108,22 @@ export default ({
   },
   methods: {
     next() {
+      this.showAns = false;
       this.onboarding = getNextSheet(this.onboarding);
       // this.onboarding = this.onboarding + 1 > this.length
       //   ? 0
       //   : this.onboarding + 1
     },
     prev() {
+      this.showAns = false;
       this.onboarding = getPrevSheet();
       // this.onboarding = this.onboarding - 1 <= -1
       //   ? this.length
       //   : this.onboarding - 1
     },
+    log(val) {
+      console.log(val);
+    }
   },
 })
 </script>
