@@ -1,80 +1,85 @@
 {
-  "Chest sheet": {
-    "alias": [ "小抄", "cheatsheet", "crib sheet" ],
-    "tags": [ "Stationery" ],
-    "explanation": "A Chest sheet is a concise set of notes used for quick reference.",
-    "explanation-tw": "有一個鮮明的主題搭配簡單的解釋的小紙。",
-    "see-also": {
-      "wiki: Cheat sheet": "https://en.wikipedia.org/wiki/Cheat_sheet"
+  "data": [
+    {
+      "name": "Cheat sheet",
+      "alias": [ "小抄", "cheatsheet", "crib sheet" ],
+      "tags": [ "Stationery" ],
+      "explanation": "A Chest sheet is a concise set of notes used for quick reference.",
+      "explanationTw": "有一個鮮明的主題搭配簡單的解釋的小紙。",
+      "seeAlso": {
+        "wiki: Cheat sheet": "https://en.wikipedia.org/wiki/Cheat_sheet"
+      }
+    },
+    {
+      "name": "Tic-tac-toe",
+      "alias": [ "圈圈叉叉", "OOXX", "Noughts and Crosses", "Tic Tac Toe", "Xs and Os" ],
+      "tags": [ "Game" ],
+      "explanation": "A paper-and-pencil game for two players who take turns marking the spaces in a three-by-three grid with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner. It is a solved game, with a forced draw assuming best play from both players.",
+      "explanationTw": "圈圈叉叉小遊戲",
+      "seeAlso": {
+        "wiki: Tic-tac-toe": "https://en.wikipedia.org/wiki/Tic-tac-toe"
+      }
+    },
+    {
+      "name": "MBA",
+      "alias": [ "工商管理碩士", "Master of Business Administration" ],
+      "tags": [ "Business", "Postgraduate education" ],
+      "explanation": "A postgraduate degree focused on business administration.",
+      "explanationTw": "企管的碩士，常常跟 EMBA 搞混，但其實 MBA 就是正常的研究生， EMBA 則專指高階主管在職進修。",
+      "seeAlso": {
+        "wiki: Master of Business Administration": "https://en.wikipedia.org/wiki/Master_of_Business_Administration"
+      }
+    }, {
+      "name": "FIFO",
+      "alias": [ "先進先出", "first in, first out", "First In First Out" ],
+      "tags": [ "Computing", "Systems theory" ],
+      "explanation": "A method for organizing the manipulation of a data structure (often, specifically a data buffer) where the oldest (first) entry, or \"head\" of the queue, is processed first. In other words, it represent first in first out",
+      "explanationTw": "在電腦科學領域， FIFO 代表第一個進去的將會第一個出來。",
+      "seeAlso": {
+        "wiki: FIFO (computing and electronics)": "https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)"
+      }
+    }, {
+      "name": "LIFO",
+      "alias": [ "後進先出", "lest in, first out", "Lest In First Out" ],
+      "tags": [ "Computing", "Systems theory" ],
+      "explanation": "A method for organizing the manipulation of a data structure (often, specifically a data buffer) where the newest (lest) entry, is processed first. In other words, it represent lest in first out",
+      "explanationTw": "在電腦科學領域， LIFO 代表最後一個進去的將會第一個出來。"
+    }, {
+      "name": "GTD",
+      "alias": [ "Getting Things Done" ],
+      "tags": [ "Workflow", "time management system" ],
+      "explanation": "A personal productivity system developed by David Allen and published in a book of the same name. it is described as a time management system. Allen states 'there is an inverse relationship between things on your mind and those things getting done'.",
+      "explanationTw": "一種處理事情的方法，態度，系統，重點在於 TODO list。",
+      "seeAlso": {
+        "什麼是 GTD (Get things Done)？建立一套完善的時間管理系統": "https://medium.com/pm%E7%9A%84%E7%94%9F%E7%94%A2%E5%8A%9B%E5%B7%A5%E5%85%B7%E7%AE%B1/%E4%BB%80%E9%BA%BC%E6%98%AF-gtd-get-things-done-1e266f71244a"
+      }
+    }, {
+      "name": "Procrastination",
+      "alias": [ "拖延症" ],
+      "tags": [ "action" ],
+      "explanation": "The action of unnecessarily and voluntarily delaying or postponing something despite knowing that there will be negative consequences for doing so.",
+      "explanationTw": "拖延症，習慣拖延。",
+      "seeAlso": {
+        "wiki: Procrastination": "https://en.wikipedia.org/wiki/Procrastination"
+      }
+    }, {
+      "name": "Eat the Frog",
+      "tags": [ "Workflow", "Method" ],
+      "explanation": "Identify one important task for the day and do it first.",
+      "explanationTw": "持之以恆的做一件小事。",
+      "seeAlso": {
+        "todoist: Eat the Frog": "https://todoist.com/productivity-methods/eat-the-frog"
+      }
+    }, {
+      "name": "A11y",
+      "alias": [ "無障礙網頁", "Accessibility" ],
+      "tags": [ "Web", "development" ],
+      "explanation": "nabling as many people as possible to use websites, even when those people's abilities are limited in some way.",
+      "explanationTw": "讓所有人都可以存取網站，就算有些人是有障礙的。",
+      "seeAlso": {
+        "稀土掘金: Web开发中最该知道却从不重视的 —— Accessibility": "https://juejin.cn/post/6844904017127047182",
+        "Mdn web docs: Accessibility": "https://developer.mozilla.org/en-US/docs/Web/Accessibility"
+      }
     }
-  },
-  "Tic-tac-toe": {
-    "alias": [ "圈圈叉叉", "OOXX", "Noughts and Crosses", "Tic Tac Toe", "Xs and Os" ],
-    "tags": [ "Game" ],
-    "explanation": "A paper-and-pencil game for two players who take turns marking the spaces in a three-by-three grid with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner. It is a solved game, with a forced draw assuming best play from both players.",
-    "explanation-tw": "圈圈叉叉小遊戲",
-    "see-also": {
-      "wiki: Tic-tac-toe": "https://en.wikipedia.org/wiki/Tic-tac-toe"
-    }
-  },
-  "MBA": {
-    "alias": [ "工商管理碩士", "Master of Business Administration" ],
-    "tags": [ "Business", "Postgraduate education" ],
-    "explanation": "A postgraduate degree focused on business administration.",
-    "explanation-tw": "企管的碩士，常常跟 EMBA 搞混，但其實 MBA 就是正常的研究生， EMBA 則專指高階主管在職進修。",
-    "see-also": {
-      "wiki: Master of Business Administration": "https://en.wikipedia.org/wiki/Master_of_Business_Administration"
-    }
-  },
-  "FIFO": {
-    "alias": [ "先進先出", "first in, first out", "First In First Out" ],
-    "tags": [ "Computing", "Systems theory" ],
-    "explanation": "A method for organizing the manipulation of a data structure (often, specifically a data buffer) where the oldest (first) entry, or \"head\" of the queue, is processed first. In other words, it represent first in first out",
-    "explanation-tw": "在電腦科學領域， FIFO 代表第一個進去的將會第一個出來。",
-    "see-also": {
-      "wiki: FIFO (computing and electronics)": "https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)"
-    }
-  },
-  "LIFO": {
-    "alias": [ "後進先出", "lest in, first out", "Lest In First Out" ],
-    "tags": [ "Computing", "Systems theory" ],
-    "explanation": "A method for organizing the manipulation of a data structure (often, specifically a data buffer) where the newest (lest) entry, is processed first. In other words, it represent lest in first out",
-    "explanation-tw": "在電腦科學領域， LIFO 代表最後一個進去的將會第一個出來。"
-  },
-  "GTD": {
-    "alias": [ "Getting Things Done" ],
-    "tags": [ "Workflow", "time management system" ],
-    "explanation": "A personal productivity system developed by David Allen and published in a book of the same name. it is described as a time management system. Allen states 'there is an inverse relationship between things on your mind and those things getting done'.",
-    "explanation-tw": "一種處理事情的方法，態度，系統，重點在於 TODO list。",
-    "see-also": {
-      "什麼是 GTD (Get things Done)？建立一套完善的時間管理系統": "https://medium.com/pm%E7%9A%84%E7%94%9F%E7%94%A2%E5%8A%9B%E5%B7%A5%E5%85%B7%E7%AE%B1/%E4%BB%80%E9%BA%BC%E6%98%AF-gtd-get-things-done-1e266f71244a"
-    }
-  },
-  "Procrastination": {
-    "alias": [ "拖延症" ],
-    "tags": [ "action" ],
-    "explanation": "The action of unnecessarily and voluntarily delaying or postponing something despite knowing that there will be negative consequences for doing so.",
-    "explanation-tw": "拖延症，習慣拖延。",
-    "see-also": {
-      "wiki: Procrastination": "https://en.wikipedia.org/wiki/Procrastination"
-    }
-  },
-  "Eat the Frog": {
-    "tags": [ "Workflow", "Method" ],
-    "explanation": "Identify one important task for the day and do it first.",
-    "explanation-tw": "持之以恆的做一件小事。",
-    "see-also": {
-      "todoist: Eat the Frog": "https://todoist.com/productivity-methods/eat-the-frog"
-    }
-  },
-  "A11y": {
-    "alias": [ "無障礙網頁", "Accessibility" ],
-    "tags": [ "Web", "development" ],
-    "explanation": "nabling as many people as possible to use websites, even when those people's abilities are limited in some way.",
-    "explanation-tw": "讓所有人都可以存取網站，就算有些人是有障礙的。",
-    "see-also": {
-      "稀土掘金: Web开发中最该知道却从不重视的 —— Accessibility": "https://juejin.cn/post/6844904017127047182",
-      "Mdn web docs: Accessibility": "https://developer.mozilla.org/en-US/docs/Web/Accessibility"
-    }
-  }
+  ]
 }
