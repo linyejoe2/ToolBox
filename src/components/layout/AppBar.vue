@@ -2,7 +2,7 @@
   <!-- <v-img gradient="to top left right, rgba(19,84,122,.8), rgba(128,208,199,.8)"></v-img> -->
 
 
-  <v-app-bar-title>{{ CONST.title }}</v-app-bar-title>
+  <v-app-bar-title  style="cursor: pointer" @click="$router.push('/')">{{ CONST.title }}</v-app-bar-title>
 
   <v-spacer></v-spacer>
 

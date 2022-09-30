@@ -1,43 +1,50 @@
 <template>
   <v-window v-model="onboarding" show-arrows="hover">
     <v-window-item v-for="(ele,name) in cheatSheetObj">
-      <v-card elevation="2" height="400" class="d-flex align-center 
-      justify-center ma-2" @click="showAns = !showAns" v-show="!showAns">
-        <h1 class="text-h1">
-          {{ name }}
-        </h1>
+      <v-card elevation="2" min-height="400" class="d-flex align-center flex-column
+      justify-center pa-4 ma-2 mb-6  bg-secondary-lighten-2" v-show="!showAns">
+        <div>
+          <h1 class="text-h1 text-center" @click="showAns = !showAns" style="cursor: pointer">
+            {{ name }}
+          </h1>
+        </div>
         <v-expand-transition>
-          <div v-if="showAns">
-            {{ ele.alias }}
-          </div>
+          <v-container v-if="showAns" fluid>
+            <v-row dense>
+              <v-col cols="12">
+                <v-card title="Explanation" class="bg-secondary-lighten-1 text-surface-variant">
+                  <v-card-text>
+                    {{ele.explanation}}
+                    <br />
+                    {{ele.explanationTw}}
+                  </v-card-text>
+                </v-card>
+              </v-col>
+              <v-col cols="6">
+                <v-card title="Alias" :text="ele.alias.join(', ')" class="bg-secondary-lighten-1 text-surface-variant">
+                </v-card>
+              </v-col>
+              <v-col cols="6">
+                <v-card title="See Also" class="bg-secondary-lighten-1 text-surface-variant">
+                  <v-card-text>
+                    <v-row dense>
+                      <v-list-item v-for="(url, webName) in ele.seeAlso" :value="webName" :title="webName" :href="url"
+                        target="seeAlso" link>
+                      </v-list-item>
+                    </v-row>
+                  </v-card-text>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-expand-transition>
       </v-card>
     </v-window-item>
   </v-window>
-  <!-- <v-window v-model="onboarding" show-arrows="hover">
-    <v-window-item v-for="(ele,name) in cheatSheetObj" :key="ele" @click="showAns = false" v-show="showAns">
-      <v-card elevation="2" height="400" class="d-flex align-center 
-      justify-center ma-2">
-        <h1 class="text-h2">
-          {{ name }}
-        </h1>
-      </v-card>
-
-    </v-window-item>
-
-    <v-window-item v-for="(ele,name) in cheatSheetObj" :key="ele" @click="showAns = false" v-show="!showAns">
-      <v-expand-transition>
-        <v-card elevation="2" height="400" class="d-flex align-center justify-center ma-2" >
-          {{ ele.alias }}
-        </v-card>
-      </v-expand-transition>
-    </v-window-item>
-  </v-window> -->
 </template>
 
 <script lang="ts">
 import cheatSheetObj from "../public/CheatSheet.json";
-
 export default ({
   data() {
     return {
@@ -66,3 +73,9 @@ export default ({
   }
 })
 </script>
+
+<style>
+.wrap-text {
+  white-space: normal;
+}
+</style>
