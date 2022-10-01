@@ -4,6 +4,7 @@ import HelloWorldVue from './views/HelloWorld.vue'
 // import LoginPage from "./views/LoginPage.vue"
 // import Home from './views/Home.vue'
 import palyGroundVue from './views/palyGround.vue'
+import ExpenditureDashboard from "./views/ExpenditureDashboard.vue"
 
 let history = createWebHistory()
 let routes = [
@@ -26,6 +27,11 @@ let routes = [
     path: '/cheat-sheet/',
     name: "Cheat Sheet",
     component: CheatSheetVue
+  },
+  {
+    path: '/expenditure-dashboard/',
+    name: "Expenditure Dashboard",
+    component: ExpenditureDashboard
   },
 ]
 

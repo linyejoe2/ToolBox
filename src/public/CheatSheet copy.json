@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "name": "電信費",
+      "frequency": "Month",
+      
+      "tags": [ "Stationery" ],
+      "explanation": "A Chest sheet is a concise set of notes used for quick reference.",
+      "explanationTw": "有一個鮮明的主題搭配簡單的解釋的小紙。",
+      "seeAlso": {
+        "wiki: Cheat sheet": "https://en.wikipedia.org/wiki/Cheat_sheet"
+      }
+    }
+  ]
+}

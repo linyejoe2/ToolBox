@@ -1,5 +1,5 @@
 <template>
-  <v-card flat tile class="bg-secondary-lighten-2 pa-2">
+  <v-card flat tile  max-width="1200px" class="bg-secondary-lighten-2 pa-2 mx-auto">
     <v-window v-model="onboarding">
       <v-window-item v-for="ele in cheatSheetObj">
         <v-card elevation="2" min-height="300" class="d-flex align-center flex-column
