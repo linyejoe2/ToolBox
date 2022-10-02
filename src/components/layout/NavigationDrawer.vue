@@ -23,7 +23,7 @@ export default {
     return {
       items: [
         { title: 'Cheat Sheet', icon: 'mdi-cards', url: "/cheat-sheet/" },
-        { title: 'Expenditure Dashboard', icon: 'mdi-currency-usd', url: "/expenditure-dashboard/" },
+        { title: 'Expenditure Dashboard', icon: 'mdi-currency-usd', url: "/exp-dashboard/" },
         { title: 'Play Ground', icon: 'mdi-racquetball', url: "/play-ground/" },
         { title: 'About', icon: 'mdi-help-box' },
       ],
