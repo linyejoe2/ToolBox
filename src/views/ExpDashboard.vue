@@ -35,20 +35,19 @@
       </v-card-actions>
     </v-card>
   </v-dialog> -->
-  <edit-exp-card :pid="editExp?editExp.pid:-1" :expName="editExp?editExp.expName:undefined"
-    :expVal="editExp?editExp.expVal:undefined">
+  <edit-exp-card :editExp="editExp" :editing="editing">
     <template v-slot:buttonGroup>
-      <v-btn color="blue-darken-1" text @click="editExp = editTemplate">
+      <v-btn color="blue-darken-1" text @click="editing = false">
         Close
       </v-btn>
-      <v-btn color="blue-darken-1" text @click="editExp = editTemplate">
+      <v-btn color="blue-darken-1" text @click="editing = false">
         Save
       </v-btn>
     </template>
   </edit-exp-card>
-{{editExp}}
+  {{editing}}
   <v-card class="d-flex flex-wrap bg-background" flat tile>
-    <exp-card :exp="exp" v-for="exp in expList" @click="editExp = exp" />
+    <exp-card :exp="exp" v-for="exp in expList" @click="editExp = exp;editing = true" />
     <v-card width="350" class="ma-2 rounded-lg bg-secondary">
       <v-card-text>
         <v-icon size="88" icon="mdi-plus"></v-icon>
@@ -85,17 +84,12 @@ export default ({
           expVal: "280",
         }
       ],
-      expReadyToPush: {
-        expName: "",
-        expVal: ""
-      },
-      editTemplate: {
+      editExp: {// 輸入狀態的內容
         pid: -1,
         expName: "",
         expVal: ""
       },
-      editExp: undefined,
-      editing: false
+      editing: false// 是不是在輸入狀態
     }
   },
   components: { ExpCard, EditExpCard },
@@ -108,9 +102,3 @@ export default ({
   },
 })
 </script>
-
-<style>
-.wrap-text {
-  white-space: normal;
-}
-</style>
