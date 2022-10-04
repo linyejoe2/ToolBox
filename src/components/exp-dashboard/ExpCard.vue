@@ -1,5 +1,5 @@
 <template>
-  <v-card width="350" class="ma-2 rounded-lg">
+  <v-card width="350" class="ma-2 rounded-lg bg-secondary-lighten-1">
     <v-card-title primary-title>
       {{exp.expName}}
     </v-card-title>
@@ -18,13 +18,6 @@
 
 <script lang="ts">
 export default {
-  props: {
-    exp: Object
-  },
-  // data() {
-  //   return {
-  //     // exp: this.exp
-  //   }
-  // },
+  props: { exp: Object }
 }
 </script>

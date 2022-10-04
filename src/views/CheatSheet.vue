@@ -6,7 +6,7 @@
       justify-center bg-secondary-lighten-2 pt-3" v-show="!showAns">
           <div>
             <h1 class="text-h1 text-center" style="cursor: pointer">
-              <v-btn variant="plain" disabled/>
+              <v-btn variant="plain" disabled />
               <span @click="showAns = !showAns" class="ma-4">
                 {{ ele.name }}
               </span>

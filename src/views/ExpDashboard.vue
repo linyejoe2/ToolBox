@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="editing" persistent max-width="600px">
+  <!-- <v-dialog v-model="editing" persistent max-width="600px">
     <v-card>
       <v-card-title>
         <span class="text-h5">編輯: {{editExp.expName}}</span>
@@ -8,10 +8,12 @@
         <v-container>
           <v-row>
             <v-col cols="12">
-              <v-text-field label="名稱*" v-model="editExp.expName" hint="填入開銷的名稱，如保險費 5000 ，則填入 保險費" persistent-hint required></v-text-field>
+              <v-text-field label="名稱*" v-model="editExp.expName" hint="填入開銷的名稱，如保險費 5000 ，則填入 保險費" persistent-hint
+                required></v-text-field>
             </v-col>
             <v-col cols="12">
-              <v-text-field label="金額*" v-model="editExp.expVal" hint="填入開銷的金額，如保險費 5000 ，則填入 5000" persistent-hint required>
+              <v-text-field label="金額*" v-model="editExp.expVal" hint="填入開銷的金額，如保險費 5000 ，則填入 5000" persistent-hint
+                required>
               </v-text-field>
             </v-col>
             <v-col cols="12">
@@ -32,15 +34,32 @@
         </v-btn>
       </v-card-actions>
     </v-card>
-  </v-dialog>
-
+  </v-dialog> -->
+  <edit-exp-card :pid="editExp?editExp.pid:-1" :expName="editExp?editExp.expName:undefined"
+    :expVal="editExp?editExp.expVal:undefined">
+    <template v-slot:buttonGroup>
+      <v-btn color="blue-darken-1" text @click="editExp = editTemplate">
+        Close
+      </v-btn>
+      <v-btn color="blue-darken-1" text @click="editExp = editTemplate">
+        Save
+      </v-btn>
+    </template>
+  </edit-exp-card>
+{{editExp}}
   <v-card class="d-flex flex-wrap bg-background" flat tile>
-    <exp-card :exp="exp" v-for="exp in expList" @click="editExp = exp;editing = true" />
+    <exp-card :exp="exp" v-for="exp in expList" @click="editExp = exp" />
+    <v-card width="350" class="ma-2 rounded-lg bg-secondary">
+      <v-card-text>
+        <v-icon size="88" icon="mdi-plus"></v-icon>
+      </v-card-text>
+    </v-card>
   </v-card>
 </template>
 
 <script lang="ts">
 import ExpCard from "../components/exp-dashboard/ExpCard.vue";
+import EditExpCard from "../components/exp-dashboard/EditExpCard.vue";
 export default ({
   data() {
     return {
@@ -66,11 +85,20 @@ export default ({
           expVal: "280",
         }
       ],
+      expReadyToPush: {
+        expName: "",
+        expVal: ""
+      },
+      editTemplate: {
+        pid: -1,
+        expName: "",
+        expVal: ""
+      },
       editExp: undefined,
       editing: false
     }
   },
-  components: { ExpCard },
+  components: { ExpCard, EditExpCard },
   computed: {
   },
   methods: {
