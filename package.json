@@ -24,7 +24,7 @@
     "vite": "^3.1.0",
     "vite-plugin-vuetify": "^1.0.0-alpha.17",
     "vue-cli-plugin-vuetify": "~2.5.8",
-    "vue-tsc": "^0.40.4"
+    "vue-tsc": "^1.0.7"
   },
   "type": "module"
 }

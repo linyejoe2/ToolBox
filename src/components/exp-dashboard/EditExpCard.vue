@@ -54,18 +54,20 @@
 </template>
 
 <script lang="ts">
+import { PropType } from 'vue'
+
+
+type TEditExp = {
+  pid: Number,
+  expName: String,
+  expVal: String
+}
+
 export default {
   props: {
     editExp: {
-      pid: {
-        type: [String, Number]
-      },
-      expName: {
-        type: String
-      },
-      expVal: {
-        type: String
-      },
+      type: Object as PropType<TEditExp>,
+      required: true
     },
     editing: {
       type: Boolean

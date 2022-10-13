@@ -17,7 +17,19 @@
 </template>
 
 <script lang="ts">
+import { PropType } from 'vue';
+
+type TExp = {
+  expName: string,
+  expVal: string
+}
+
 export default {
-  props: { exp: Object }
+  props: {
+    exp: {
+      required: true,
+      type: Object as PropType<TExp>
+    }
+  }
 }
 </script>
