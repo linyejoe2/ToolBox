@@ -20,8 +20,8 @@
 import { PropType } from 'vue';
 
 type TExp = {
-  expName: string,
-  expVal: string
+  expName: String,
+  expVal: String
 }
 
 export default {
