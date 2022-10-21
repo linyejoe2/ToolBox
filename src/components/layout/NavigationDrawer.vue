@@ -25,7 +25,8 @@ export default {
         { title: 'Cheat Sheet', icon: 'mdi-cards', url: "/cheat-sheet/" },
         { title: 'Expenditure Dashboard', icon: 'mdi-currency-usd', url: "/exp-dashboard/" },
         { title: 'Play Ground', icon: 'mdi-racquetball', url: "/play-ground/" },
-        { title: 'About', icon: 'mdi-help-box' },
+        { title: 'SQL Tools', icon: 'mdi-database-search', url: "/sql-tools/" },
+        // { title: 'About', icon: 'mdi-help-box' },
       ],
       right: null,
     }

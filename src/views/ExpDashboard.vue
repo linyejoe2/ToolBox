@@ -35,7 +35,7 @@
       </v-card-actions>
     </v-card>
   </v-dialog> -->
-  <edit-exp-card :editExp="editExp" :editing="editing">
+  <edit-exp-card :editExp="editExp" :editing="editing" :title="'編輯:' + editExp.expName">
     <template v-slot:buttonGroup>
       <v-btn color="blue-darken-1" text @click="editing = false">
         Close
@@ -60,6 +60,7 @@
 import ExpCard from "../components/exp-dashboard/ExpCard.vue";
 import EditExpCard from "../components/exp-dashboard/EditExpCard.vue";
 export default ({
+
   data() {
     return {
       expList: [

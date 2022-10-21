@@ -5,6 +5,7 @@ import HelloWorldVue from './views/HelloWorld.vue'
 // import Home from './views/Home.vue'
 import palyGroundVue from './views/palyGround.vue'
 import ExpDashboard from "./views/ExpDashboard.vue"
+import SQLTools from "./views/SQLTools.vue"
 
 let history = createWebHistory()
 let routes = [
@@ -32,6 +33,11 @@ let routes = [
     path: '/exp-dashboard/',
     name: "Expenditure Dashboard",
     component: ExpDashboard
+  },
+  {
+    path: '/sql-tools/',
+    name: "SQL Tools",
+    component: SQLTools
   },
 ]
 
